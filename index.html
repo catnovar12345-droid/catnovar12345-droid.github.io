@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بانو ملی | به قلم Ava</title>
+    <!-- فونت خوانا برای متن‌ها -->
     <link href="https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/Vazirmatn.css" rel="stylesheet">
-    <!-- فونت کلاسیک برای تیترها -->
+    <!-- فونت ناز و نستعلیق برای تیترها -->
     <link href="https://cdn.fontcdn.ir/Font/Persian/IranNastaliq/IranNastaliq.css" rel="stylesheet">
+    
     <style>
         :root {
             --dark-bg: #0a0303;
@@ -20,19 +22,15 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Vazirmatn', sans-serif;
+            font-family: 'Vazirmatn', sans-serif; /* فونت اصلی متن‌ها */
         }
         body {
             background-color: var(--dark-bg);
             color: var(--text-color);
-            /* بافت مخملی و شعاعی برای حس سلطنتی */
-            background-image: 
-                radial-gradient(circle at 50% 0%, #2a0808 0%, #050101 70%),
-                url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            background-image: radial-gradient(circle at 50% 0%, #2a0808 0%, #050101 70%);
             background-attachment: fixed;
             min-height: 100vh;
         }
-        /* هدر با خط طلایی دوبل */
         header {
             display: flex;
             justify-content: space-between;
@@ -46,7 +44,13 @@
             top: 0;
             z-index: 100;
         }
-        .logo { font-size: 1.5rem; color: var(--gold); font-weight: bold; }
+        .logo { 
+            font-family: 'IranNastaliq', serif; 
+            font-size: 2rem; 
+            color: var(--gold); 
+            font-weight: bold; 
+            text-shadow: 0 0 10px rgba(212,175,55,0.5);
+        }
         nav a {
             color: var(--light-gold);
             text-decoration: none;
@@ -54,10 +58,11 @@
             transition: all 0.3s;
             font-weight: 500;
         }
-        nav a:hover {
-            color: var(--gold);
-            text-shadow: 0 0 10px var(--gold);
+        nav a:hover { 
+            color: var(--gold); 
+            text-shadow: 0 0 10px var(--gold); 
         }
+        
         /* بخش هیرو (بالای سایت) */
         .hero {
             display: flex;
@@ -66,58 +71,52 @@
             justify-content: center;
             text-align: center;
             height: 85vh;
-            position: relative;
-            background: url('https://www.transparenttextures.com/patterns/black-scales.png');
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
         .hero h1 {
-            font-family: 'IranNastaliq', serif;
-            font-size: 6rem;
+            font-family: 'IranNastaliq', serif; /* فونت ناز برای اسم داستان */
+            font-size: 7rem;
             color: var(--gold);
             text-shadow: 0 0 30px rgba(212, 175, 55, 0.7), 0 0 10px #000;
             margin-bottom: 10px;
             line-height: 1.2;
         }
         .author-name {
-            font-family: 'IranNastaliq', serif;
-            font-size: 2rem;
+            font-family: 'IranNastaliq', serif; /* فونت ناز برای اسم نویسنده */
+            font-size: 2.5rem;
             color: var(--light-gold);
             margin-bottom: 30px;
             text-shadow: 0 0 10px rgba(0,0,0,0.9);
         }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 50px;
-            color: #ccc;
-            font-style: italic;
+        .hero p { 
+            font-size: 1.3rem; 
+            margin-bottom: 50px; 
+            color: #ccc; 
+            font-style: italic; 
             letter-spacing: 1px;
         }
+        
         /* دکمه‌های سلطنتی */
         .btn {
             background: linear-gradient(135deg, var(--maroon), #2a0808);
             color: var(--gold);
             border: 2px solid var(--gold);
             padding: 15px 50px;
-            border-radius: 0; /* گوشه‌های تیز برای حس کلاسیک */
             cursor: pointer;
             font-size: 1.2rem;
             transition: all 0.4s ease;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3), inset 0 0 10px rgba(0,0,0,0.8);
-            position: relative;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            border-radius: 5px;
         }
-        .btn::before, .btn::after {
-            content: '❖'; position: absolute; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 1rem;
+        .btn:hover { 
+            background: linear-gradient(135deg, #6b1420, var(--maroon)); 
+            transform: scale(1.05); 
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
         }
-        .btn::before { left: 15px; }
-        .btn::after { right: 15px; }
-        .btn:hover {
-            background: linear-gradient(135deg, #6b1420, var(--maroon));
-            color: var(--light-gold);
-            box-shadow: 0 0 30px var(--gold), inset 0 0 15px rgba(212, 175, 55, 0.5);
-            transform: scale(1.05);
-        }
+        
+        /* بخش کارت‌ها */
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -130,111 +129,73 @@
         .box {
             background: var(--box-bg);
             border: 2px solid var(--gold);
-            /* قاب دوبل برای باکس‌ها */
-            box-shadow: 0 0 0 4px #110202, 0 0 0 5px var(--gold), 0 15px 40px rgba(0,0,0,0.9), inset 0 0 30px rgba(0,0,0,0.8);
+            box-shadow: 0 0 0 4px #110202, 0 0 0 5px var(--gold), 0 15px 40px rgba(0,0,0,0.9);
             border-radius: 10px;
             padding: 40px;
             flex: 1;
             min-width: 300px;
             text-align: center;
-            position: relative;
         }
         .box h2 {
-            font-family: 'IranNastaliq', serif;
+            font-family: 'IranNastaliq', serif; /* فونت ناز برای تیترها */
             color: var(--gold);
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 35px;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-            position: relative;
-            display: inline-block;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
-        .box h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        
+        /* قاب عکس‌ها */
+        .characters, .kings-section { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 40px; 
         }
-        /* بخش شخصیت‌ها با قاب‌های طلایی */
-        .characters, .kings-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 20px;
+        .char-card, .king-card { 
+            text-align: center; 
+            transition: transform 0.4s; 
+            padding: 10px; 
         }
-        .char-card, .king-card {
-            text-align: center;
-            transition: transform 0.4s;
-            position: relative;
-            padding: 10px;
+        .char-card:hover, .king-card:hover { 
+            transform: translateY(-10px); 
         }
-        .char-card:hover, .king-card:hover {
-            transform: translateY(-10px);
-        }
-        /* استایل قاب عکس‌ها (شبیه قاب سلطنتی) */
         .char-card img, .king-card img {
             border-radius: 50%;
             border: 4px solid var(--gold);
-            /* ایجاد افکت قاب دوبل با سایه */
-            box-shadow: 
-                0 0 0 6px var(--maroon), 
-                0 0 0 8px var(--gold), 
-                0 10px 25px rgba(0,0,0,0.9), 
-                0 0 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 0 6px var(--maroon), 0 0 0 8px var(--gold), 0 10px 25px rgba(0,0,0,0.9);
             object-fit: cover;
-            background-color: #000;
-            transition: all 0.3s;
         }
-        .char-card img {
-            width: 130px;
-            height: 130px;
-        }
-        .king-card img {
-            width: 180px;
-            height: 180px;
-            border-radius: 10px; /* پادشاه‌ها قاب مربعی */
-            box-shadow: 
-                0 0 0 5px #110202, 
-                0 0 0 7px var(--gold), 
-                0 10px 25px rgba(0,0,0,0.9), 
-                0 0 20px rgba(212, 175, 55, 0.3);
-        }
+        .char-card img { width: 130px; height: 130px; }
+        .king-card img { width: 180px; height: 180px; border-radius: 10px; }
+        
         .char-card h3, .king-card h3 {
-            font-family: 'IranNastaliq', serif;
+            font-family: 'IranNastaliq', serif; /* فونت ناز برای اسم شخصیت‌ها */
             color: var(--light-gold);
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-top: 20px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
         }
+        
         /* پخش‌کننده موسیقی */
         .audio-player {
             background: rgba(0,0,0,0.6);
             padding: 30px;
             border-radius: 5px;
             border: 1px solid var(--maroon);
-            box-shadow: inset 0 0 20px rgba(0,0,0,1);
         }
         .song-title {
             font-family: 'IranNastaliq', serif;
             color: var(--gold);
             font-size: 1.5rem;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(212,175,55,0.5);
         }
-        audio {
-            width: 100%;
-            outline: none;
-            filter: sepia(1) hue-rotate(-30deg) saturate(1.5); /* افکت رنگی کردن پخش‌کننده */
-        }
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #020000;
-            font-size: 15px;
-            border-top: 3px double var(--gold);
-            color: #888;
-            font-style: italic;
-            margin-top: 60px;
+        audio { width: 100%; outline: none; }
+        
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            background: #020000; 
+            border-top: 3px double var(--gold); 
+            color: #888; 
         }
     </style>
 </head>
@@ -243,7 +204,6 @@
         <div class="logo">👑 بانو ملی</div>
         <nav>
             <a href="#">صفحه اصلی</a>
-            <a href="#about">درباره داستان</a>
             <a href="#characters">شخصیت‌ها</a>
             <a href="#kings">پادشاهان</a>
         </nav>
@@ -253,7 +213,7 @@
         <h1>بانو ملی</h1>
         <div class="author-name">به قلم Ava</div>
         <p>داستانی از عشق، قدرت و سرنوشت...</p>
-        <a href="#music-player" class="btn" onclick="document.getElementById('bg-music').play()">📖 شروع داستان</a>
+        <a href="#characters" class="btn">📖 شروع داستان</a>
     </section>
 
     <section class="container" id="characters">
@@ -261,6 +221,7 @@
             <h2>شخصیت‌های اصلی</h2>
             <div class="characters">
                 <div class="char-card">
+                    <!-- اینجا عکس‌های خودت رو با اسم‌های file_... گذاشتم -->
                     <img src="file_000000005160821085cd97d3beb97764.png" alt="لوسی">
                     <h3>لوسی</h3>
                 </div>
@@ -282,8 +243,9 @@
 
     <section class="container" id="kings">
         <div class="box" style="max-width: 100%;">
-            <h2>پادشاهان (شخصیت‌های فرعی)</h2>
+            <h2>پادشاهان</h2>
             <div class="kings-section">
+                <!-- لینک عکس‌های پادشاهان از ویکی‌پدیا -->
                 <div class="king-card">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Louis_XIV_of_France.jpg/400px-Louis_XIV_of_France.jpg" alt="پادشاه فرانسه">
                     <h3>پادشاه فرانسه</h3>
@@ -310,9 +272,9 @@
             <h2>🎵 موسیقی داستان</h2>
             <div class="audio-player">
                 <div class="song-title">♪ Fourth of July - Sufjan Stevens</div>
-                <!-- لینک مستقیم جایگزین -->
+                <!-- لینک مستقیم جدید برای آهنگ -->
                 <audio id="bg-music" controls style="width: 100%;">
-                    <source src="https://ia800504.us.archive.org/5/items/sufjan-stevens-fourth-of-july/Sufjan%20Stevens%20-%20Fourth%20of%20July.mp3" type="audio/mpeg">
+                    <source src="https://dl.musicfa.com/1403/02/11/Sufjan-Stevens-Fourth-Of-July.mp3" type="audio/mpeg">
                 </audio>
             </div>
         </div>
@@ -322,4 +284,4 @@
         ساخته شده با ❤️ برای داستان بانو ملی | به قلم Ava | تمامی حقوق محفوظ است.
     </footer>
 </body>
-</html>
+                        </html>
