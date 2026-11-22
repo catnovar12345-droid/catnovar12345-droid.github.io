@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بانو ملی | داستان عشق و قدرت</title>
+    <link href="https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/Vazirmatn.css" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0a0505;
+            --maroon: #4a0e15;
+            --gold: #d4af37;
+            --text-color: #e0d0c0;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            background-image: url('background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(10, 5, 5, 0.8);
+            border-bottom: 1px solid var(--gold);
+            font-size: 14px;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--gold);
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(10,5,5,0.9) 100%);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background-color: var(--maroon);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            box-shadow: 0 0 15px var(--gold);
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            background: rgba(10, 5, 5, 0.9);
+        }
+        .box {
+            background: rgba(20, 10, 10, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .box h2 {
+            color: var(--gold);
+            border-bottom: 1px solid var(--maroon);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .characters {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+        }
+        .char-card {
+            text-align: center;
+        }
+        .char-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .audio-player {
+            background: #110808;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .audio-player p {
+            color: var(--gold);
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #050202;
+            font-size: 12px;
+            border-top: 1px solid var(--maroon);
+        }
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 10px; font-size: 12px; }
+            .hero h1 { font-size: 2.5rem; }
+            .container { padding: 20px; }
+            .characters { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>👑 بانو ملی</div>
+        <nav>
+            <a href="#">صفحه اصلی</a>
+            <a href="#">درباره داستان</a>
+            <a href="#">شخصیت‌ها</a>
+            <a href="#">فصل‌ها</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>بانو ملی</h1>
+        <p>داستانی از عشق، قدرت و سرنوشت...</p>
+        <a href="#chapters" class="btn">📖 شروع داستان</a>
+    </section>
+    <section class="container">
+        <div class="box">
+            <h2>شخصیت‌ها</h2>
+            <div class="characters">
+                <div class="char-card">
+                    <img src="lucy.jpg" alt="لوسی">
+                    <h3>لوسی</h3>
+                    <p style="font-size: 12px;">دختری با موهای سرخ</p>
+                </div>
+                <div class="char-card">
+                    <img src="andre.jpg" alt="آندره">
+                    <h3>آندره</h3>
+                    <p style="font-size: 12px;">پسری از خاندان سلطنتی</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <h2>درباره داستان</h2>
+            <p>در میان شکوه کاخ‌ها و سایه‌های گذشته، دختری از سرزمین روسیه و پسری از آلمان... داستانی از عشق ممنوعه، قدرت، و انتخاب‌هایی که سرنوشت را می‌سازند...</p>
+        </div>
+        <div class="box">
+            <h2>🎵 موسیقی داستان</h2>
+            <div class="audio-player">
+                <audio controls style="width: 100%;">
+                    <source src="music.mp3" type="audio/mpeg">
+                </audio>
+                <p>♪ موسیقی متن داستان</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        ساخته شده با ❤️ برای داستان بانو ملی | تمامی حقوق محفوظ است.
+    </footer>
+</body>
+</html>
