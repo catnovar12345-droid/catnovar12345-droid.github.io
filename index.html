@@ -11,6 +11,7 @@
             --maroon: #4a0e15;
             --gold: #d4af37;
             --text-color: #e0d0c0;
+            --box-bg: rgba(20, 10, 10, 0.85);
         }
         * {
             box-sizing: border-box;
@@ -21,19 +22,21 @@
         body {
             background-color: var(--dark-bg);
             color: var(--text-color);
-            background-size: cover;
-            background-position: center;
+            background-image: radial-gradient(circle at center, #1a0a0a 0%, #050202 100%);
             background-attachment: fixed;
-            background-blend-mode: overlay;
+            min-height: 100vh;
         }
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background: rgba(10, 5, 5, 0.8);
+            background: rgba(10, 5, 5, 0.9);
             border-bottom: 1px solid var(--gold);
             font-size: 14px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
             color: var(--text-color);
@@ -50,108 +53,154 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 70vh;
-            background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(10,5,5,0.9) 100%);
+            height: 80vh;
+            background: radial-gradient(circle, rgba(74, 14, 21, 0.2) 0%, rgba(10,5,5,0.95) 100%);
+            padding: 20px;
         }
         .hero h1 {
-            font-size: 4rem;
+            font-size: 5rem;
             color: var(--gold);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            margin-bottom: 5px;
         }
         .author-name {
             font-size: 1.5rem;
             color: var(--gold);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-style: italic;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            opacity: 0.9;
         }
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
         .btn {
             background-color: var(--maroon);
             color: var(--gold);
             border: 1px solid var(--gold);
-            padding: 12px 30px;
+            padding: 15px 40px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
             text-decoration: none;
+            display: inline-block;
         }
         .btn:hover {
             background-color: var(--gold);
             color: var(--dark-bg);
-            box-shadow: 0 0 15px var(--gold);
+            box-shadow: 0 0 25px var(--gold);
+            transform: translateY(-2px);
         }
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            padding: 40px;
-            background: rgba(10, 5, 5, 0.9);
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .box {
-            background: rgba(20, 10, 10, 0.8);
+            background: var(--box-bg);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 30px;
             flex: 1;
             min-width: 300px;
-            max-width: 800px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
         }
         .box h2 {
             color: var(--gold);
             border-bottom: 1px solid var(--maroon);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
         }
+        
+        /* بخش شخصیت‌ها */
         .characters {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
         }
         .char-card {
             text-align: center;
-            width: 120px;
+            width: 140px;
+            transition: transform 0.3s;
+        }
+        .char-card:hover {
+            transform: scale(1.05);
         }
         .char-card img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
+            border: 3px solid var(--gold);
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+        .char-card h3 {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* بخش پادشاهان (آماده برای عکس) */
+        .kings-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .king-card {
+            text-align: center;
+            width: 180px;
+        }
+        .king-card img {
+            width: 160px;
+            height: 160px;
+            border-radius: 10px; /* قاب مربعی برای پادشاهان */
             border: 2px solid var(--gold);
             object-fit: cover;
             margin-bottom: 10px;
+            background-color: #222; /* رنگ موقت */
         }
-        .more-btn {
-            margin-top: 20px;
-            display: inline-block;
-            font-size: 0.9rem;
-            padding: 8px 20px;
-        }
+
+        /* پخش‌کننده موسیقی */
         .audio-player {
             background: #110808;
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
             margin-top: 20px;
+            border: 1px solid var(--maroon);
         }
-        .audio-player p {
+        .song-title {
             color: var(--gold);
-            font-size: 12px;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        audio {
+            width: 100%;
+            outline: none;
+        }
+        audio::-webkit-media-controls-panel {
+            background-color: var(--gold);
         }
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             background: #050202;
-            font-size: 12px;
+            font-size: 14px;
             border-top: 1px solid var(--maroon);
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -160,9 +209,9 @@
         <div>👑 بانو ملی</div>
         <nav>
             <a href="#">صفحه اصلی</a>
-            <a href="#">درباره داستان</a>
-            <a href="#">شخصیت‌ها</a>
-            <a href="#">فصل‌ها</a>
+            <a href="#about">درباره داستان</a>
+            <a href="#characters">شخصیت‌ها</a>
+            <a href="#kings">پادشاهان</a>
         </nav>
     </header>
 
@@ -170,15 +219,16 @@
         <h1>بانو ملی</h1>
         <div class="author-name">به قلم Ava</div>
         <p>داستانی از عشق، قدرت و سرنوشت...</p>
-        <a href="#chapters" class="btn">📖 شروع داستان</a>
+        <!-- با کلیک روی این دکمه، هم به پایین اسکرول میشه و هم آهنگ پلی میشه -->
+        <a href="#music-player" class="btn" onclick="document.getElementById('bg-music').play()">📖 شروع داستان</a>
     </section>
 
-    <section class="container">
-        <div class="box">
+    <section class="container" id="characters">
+        <div class="box" style="max-width: 100%;">
             <h2>شخصیت‌های اصلی</h2>
             <div class="characters">
                 <div class="char-card">
-                    <img src="file_00000000401c81f4975725d2c9d18a55.png" alt="لوسی">
+                    <img src="file_000000005160821085cd97d3beb97764.png" alt="لوسی">
                     <h3>لوسی</h3>
                 </div>
                 <div class="char-card">
@@ -186,7 +236,7 @@
                     <h3>آندره</h3>
                 </div>
                 <div class="char-card">
-                    <img src="file_000000005160821085cd97d3beb97764.png" alt="ملی">
+                    <img src="file_00000000401c81f4975725d2c9d18a55.png" alt="ملی">
                     <h3>ملی</h3>
                 </div>
                 <div class="char-card">
@@ -194,22 +244,45 @@
                     <h3>خدمتکار</h3>
                 </div>
             </div>
-            <br>
-            <a href="characters.html" class="btn more-btn">مشاهده سایر شخصیت‌ها (پادشاهان) 👑</a>
         </div>
+    </section>
 
+    <!-- بخش جدید برای پادشاهان -->
+    <section class="container" id="kings">
+        <div class="box" style="max-width: 100%;">
+            <h2>پادشاهان (شخصیت‌های فرعی)</h2>
+            <div class="kings-section">
+                <!-- اینجا عکس‌ها رو بعدا آپلود میکنی و اسم فایل‌ها رو میذاری -->
+                <div class="king-card">
+                    <img src="france.jpg" alt="پادشاه فرانسه" onerror="this.style.display='none'">
+                    <h3>پادشاه فرانسه</h3>
+                </div>
+                <div class="king-card">
+                    <img src="germany.jpg" alt="پادشاه آلمان" onerror="this.style.display='none'">
+                    <h3>پادشاه آلمان</h3>
+                </div>
+                <div class="king-card">
+                    <img src="russia.jpg" alt="پادشاه روسیه" onerror="this.style.display='none'">
+                    <h3>پادشاه روسیه</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="about">
         <div class="box">
             <h2>درباره داستان</h2>
             <p>در میان شکوه کاخ‌ها و سایه‌های گذشته، دختری از سرزمین روسیه و پسری از آلمان... داستانی از عشق ممنوعه، قدرت، و انتخاب‌هایی که سرنوشت را می‌سازند...</p>
         </div>
-
-        <div class="box">
+        
+        <div class="box" id="music-player">
             <h2>🎵 موسیقی داستان</h2>
             <div class="audio-player">
-                <audio controls style="width: 100%;">
+                <div class="song-title">♪ Fourth of July - Sufjan Stevens</div>
+                <!-- اینجا فایل صوتی باید در گیت هاب با اسم music.mp3 آپلود بشه -->
+                <audio id="bg-music" controls style="width: 100%;">
                     <source src="music.mp3" type="audio/mpeg">
                 </audio>
-                <p>♪ موسیقی متن داستان</p>
             </div>
         </div>
     </section>
@@ -218,4 +291,4 @@
         ساخته شده با ❤️ برای داستان بانو ملی | به قلم Ava | تمامی حقوق محفوظ است.
     </footer>
 </body>
-</html>
+                        </html>
