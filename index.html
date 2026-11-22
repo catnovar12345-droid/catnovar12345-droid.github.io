@@ -121,8 +121,6 @@
             margin-bottom: 25px;
             font-size: 1.8rem;
         }
-        
-        /* بخش شخصیت‌ها */
         .characters {
             display: flex;
             flex-wrap: wrap;
@@ -150,8 +148,6 @@
             color: var(--gold);
             font-size: 1.2rem;
         }
-
-        /* بخش پادشاهان (آماده برای عکس) */
         .kings-section {
             display: flex;
             flex-wrap: wrap;
@@ -166,14 +162,12 @@
         .king-card img {
             width: 160px;
             height: 160px;
-            border-radius: 10px; /* قاب مربعی برای پادشاهان */
+            border-radius: 10px;
             border: 2px solid var(--gold);
             object-fit: cover;
             margin-bottom: 10px;
-            background-color: #222; /* رنگ موقت */
+            background-color: #222;
         }
-
-        /* پخش‌کننده موسیقی */
         .audio-player {
             background: #110808;
             padding: 25px;
@@ -190,9 +184,6 @@
         audio {
             width: 100%;
             outline: none;
-        }
-        audio::-webkit-media-controls-panel {
-            background-color: var(--gold);
         }
         footer {
             text-align: center;
@@ -219,7 +210,6 @@
         <h1>بانو ملی</h1>
         <div class="author-name">به قلم Ava</div>
         <p>داستانی از عشق، قدرت و سرنوشت...</p>
-        <!-- با کلیک روی این دکمه، هم به پایین اسکرول میشه و هم آهنگ پلی میشه -->
         <a href="#music-player" class="btn" onclick="document.getElementById('bg-music').play()">📖 شروع داستان</a>
     </section>
 
@@ -247,12 +237,10 @@
         </div>
     </section>
 
-    <!-- بخش جدید برای پادشاهان -->
     <section class="container" id="kings">
         <div class="box" style="max-width: 100%;">
             <h2>پادشاهان (شخصیت‌های فرعی)</h2>
             <div class="kings-section">
-                <!-- اینجا عکس‌ها رو بعدا آپلود میکنی و اسم فایل‌ها رو میذاری -->
                 <div class="king-card">
                     <img src="france.jpg" alt="پادشاه فرانسه" onerror="this.style.display='none'">
                     <h3>پادشاه فرانسه</h3>
@@ -279,9 +267,9 @@
             <h2>🎵 موسیقی داستان</h2>
             <div class="audio-player">
                 <div class="song-title">♪ Fourth of July - Sufjan Stevens</div>
-                <!-- اینجا فایل صوتی باید در گیت هاب با اسم music.mp3 آپلود بشه -->
+                <!-- این لینک مستقیم اینترنتیه و نیازی به آپلود فایل mp3 توی گیت هاب نداره -->
                 <audio id="bg-music" controls style="width: 100%;">
-                    <source src="music.mp3" type="audio/mpeg">
+                    <source src="https://archive.org/download/sufjan-stevens-fourth-of-july/Sufjan%20Stevens%20-%20Fourth%20of%20July.mp3" type="audio/mpeg">
                 </audio>
             </div>
         </div>
@@ -291,4 +279,4 @@
         ساخته شده با ❤️ برای داستان بانو ملی | به قلم Ava | تمامی حقوق محفوظ است.
     </footer>
 </body>
-                        </html>
+</html>
