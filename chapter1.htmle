@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پایان داستان | بانو مِلی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root { --black:#090608; --maroon:#591321; --gold:#d6b36d; --pale:#f2dfb7; --cream:#eee5d9; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:radial-gradient(ellipse at top,#38101b,#10080b 55%,#080607); color:var(--cream); font-family:'Vazirmatn',sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+a { text-decoration:none; color:inherit; }
+.link-card { background: linear-gradient(145deg,#40101b55,#0a0709bb); border: 1px solid #b28b50; box-shadow: 0 0 30px rgba(214, 179, 109, 0.15), inset 0 0 30px rgba(214, 179, 109, 0.05); border-radius: 10px; padding: 50px 30px; max-width: 500px; width: 100%; position: relative; }
+.link-card::before, .link-card::after { content: '✦'; position: absolute; color: var(--gold); font-size: 20px; }
+.link-card::before { top: 15px; right: 15px; }
+.link-card::after { bottom: 15px; left: 15px; }
+.icon { font-size: 50px; color: var(--gold); margin-bottom: 20px; text-shadow: 0 0 15px rgba(214, 179, 109, 0.5); }
+h1 { color: var(--gold); font-size: 28px; margin-bottom: 15px; font-weight: 700; }
+p { color: #b9a68e; font-size: 15px; line-height: 2; margin-bottom: 35px; }
+.main-btn { display: inline-block; background: linear-gradient(135deg, #641526, #300a12); color: var(--pale); border: 1px solid var(--gold); padding: 15px 40px; font-size: 16px; font-weight: 600; border-radius: 5px; transition: all 0.4s ease; box-shadow: 0 0 15px rgba(214, 179, 109, 0.2); width: 100%; }
+.main-btn:hover { background: var(--gold); color: #18090c; box-shadow: 0 0 25px rgba(214, 179, 109, 0.6); transform: translateY(-3px); }
+.footer-text { margin-top: 40px; font-size: 12px; color: #8c6c40; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<div class="link-card">
+    <div class="icon">👑</div>
+    <h1>پایان داستان</h1>
+    <p>از اینکه تا انتهای این سفر با بانو ملی همراه بودید سپاسگزاریم.<br>برای مطالعه ادامه داستان یا دریافت نسخه کامل کتاب، روی دکمه زیر کلیک کنید.</p>
+    
+    <!-- ⚠️ لینک خودت رو به جای LINK_HERE بذار ⚠️ -->
+    <a href="LINK_HERE" target="_blank" class="main-btn">📖 دریافت ادامه داستان</a>
+    
+    <div class="footer-text">نوشته شده با ❤️ توسط Ava</div>
+</div>
+</body>
+</html>
