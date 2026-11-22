@@ -274,6 +274,42 @@ footer {
   font-size:13px;
 }
 
+/* استایل دکمه موزیک شناور */
+.music-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: rgba(38, 8, 17, 0.9);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 0 15px rgba(214, 179, 109, 0.5);
+  transition: all 0.3s;
+  font-size: 24px;
+  color: var(--gold);
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(214, 179, 109, 0.8);
+}
+
+.music-btn.playing {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(214, 179, 109, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(214, 179, 109, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(214, 179, 109, 0); }
+}
+
 @media(max-width:800px) {
   header {
     flex-direction:column;
@@ -360,7 +396,6 @@ footer {
 
       <div class="character">
         <div class="circle">
-          <!-- اینجا عکس‌های واقعی خودت گذاشته شد -->
           <img src="file_000000005160821085cd97d3beb97764.png" alt="لوسی">
         </div>
         <h3>لوسی</h3>
@@ -405,7 +440,6 @@ footer {
 
       <div class="king">
         <div class="king-image">
-          <!-- عکس‌های پادشاهان از لینک‌های معتبر -->
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Louis_XIV_of_France.jpg/400px-Louis_XIV_of_France.jpg" alt="پادشاه فرانسه">
         </div>
         <h3>پادشاه فرانسه</h3>
@@ -463,6 +497,31 @@ footer {
   <p>© تمام حقوق داستان بانو مِلی محفوظ است.</p>
   <p>نوشته شده با عشق توسط <span>Ava</span> 🥀</p>
 </footer>
+
+<!-- دکمه شناور موزیک -->
+<div class="music-btn" id="musicBtn" onclick="toggleMusic()">♪</div>
+
+<!-- فایل صوتی (آهنگ از سرور معتبر و باز) -->
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const audio = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicBtn');
+
+  function toggleMusic() {
+    if (audio.paused) {
+      audio.play();
+      btn.classList.add('playing');
+      btn.innerHTML = '❚❚'; // آیکون توقف
+    } else {
+      audio.pause();
+      btn.classList.remove('playing');
+      btn.innerHTML = '♪'; // آیکون پخش
+    }
+  }
+</script>
 
 </body>
 </html>
