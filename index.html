@@ -1,287 +1,468 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بانو ملی | به قلم Ava</title>
-    <!-- فونت خوانا برای متن‌ها -->
-    <link href="https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/Vazirmatn.css" rel="stylesheet">
-    <!-- فونت ناز و نستعلیق برای تیترها -->
-    <link href="https://cdn.fontcdn.ir/Font/Persian/IranNastaliq/IranNastaliq.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            --dark-bg: #0a0303;
-            --maroon: #4a0e15;
-            --gold: #d4af37;
-            --light-gold: #f3e5ab;
-            --text-color: #f0e6d2;
-            --box-bg: rgba(15, 5, 5, 0.95);
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Vazirmatn', sans-serif; /* فونت اصلی متن‌ها */
-        }
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-color);
-            background-image: radial-gradient(circle at 50% 0%, #2a0808 0%, #050101 70%);
-            background-attachment: fixed;
-            min-height: 100vh;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: rgba(10, 2, 2, 0.95);
-            border-bottom: 3px double var(--gold);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
-            font-size: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo { 
-            font-family: 'IranNastaliq', serif; 
-            font-size: 2rem; 
-            color: var(--gold); 
-            font-weight: bold; 
-            text-shadow: 0 0 10px rgba(212,175,55,0.5);
-        }
-        nav a {
-            color: var(--light-gold);
-            text-decoration: none;
-            margin-left: 25px;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        nav a:hover { 
-            color: var(--gold); 
-            text-shadow: 0 0 10px var(--gold); 
-        }
-        
-        /* بخش هیرو (بالای سایت) */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            height: 85vh;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        .hero h1 {
-            font-family: 'IranNastaliq', serif; /* فونت ناز برای اسم داستان */
-            font-size: 7rem;
-            color: var(--gold);
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.7), 0 0 10px #000;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-        .author-name {
-            font-family: 'IranNastaliq', serif; /* فونت ناز برای اسم نویسنده */
-            font-size: 2.5rem;
-            color: var(--light-gold);
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(0,0,0,0.9);
-        }
-        .hero p { 
-            font-size: 1.3rem; 
-            margin-bottom: 50px; 
-            color: #ccc; 
-            font-style: italic; 
-            letter-spacing: 1px;
-        }
-        
-        /* دکمه‌های سلطنتی */
-        .btn {
-            background: linear-gradient(135deg, var(--maroon), #2a0808);
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            padding: 15px 50px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-            border-radius: 5px;
-        }
-        .btn:hover { 
-            background: linear-gradient(135deg, #6b1420, var(--maroon)); 
-            transform: scale(1.05); 
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
-        }
-        
-        /* بخش کارت‌ها */
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .box {
-            background: var(--box-bg);
-            border: 2px solid var(--gold);
-            box-shadow: 0 0 0 4px #110202, 0 0 0 5px var(--gold), 0 15px 40px rgba(0,0,0,0.9);
-            border-radius: 10px;
-            padding: 40px;
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        .box h2 {
-            font-family: 'IranNastaliq', serif; /* فونت ناز برای تیترها */
-            color: var(--gold);
-            font-size: 3rem;
-            margin-bottom: 35px;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-        }
-        
-        /* قاب عکس‌ها */
-        .characters, .kings-section { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 40px; 
-        }
-        .char-card, .king-card { 
-            text-align: center; 
-            transition: transform 0.4s; 
-            padding: 10px; 
-        }
-        .char-card:hover, .king-card:hover { 
-            transform: translateY(-10px); 
-        }
-        .char-card img, .king-card img {
-            border-radius: 50%;
-            border: 4px solid var(--gold);
-            box-shadow: 0 0 0 6px var(--maroon), 0 0 0 8px var(--gold), 0 10px 25px rgba(0,0,0,0.9);
-            object-fit: cover;
-        }
-        .char-card img { width: 130px; height: 130px; }
-        .king-card img { width: 180px; height: 180px; border-radius: 10px; }
-        
-        .char-card h3, .king-card h3 {
-            font-family: 'IranNastaliq', serif; /* فونت ناز برای اسم شخصیت‌ها */
-            color: var(--light-gold);
-            font-size: 1.8rem;
-            margin-top: 20px;
-        }
-        
-        /* پخش‌کننده موسیقی */
-        .audio-player {
-            background: rgba(0,0,0,0.6);
-            padding: 30px;
-            border-radius: 5px;
-            border: 1px solid var(--maroon);
-        }
-        .song-title {
-            font-family: 'IranNastaliq', serif;
-            color: var(--gold);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        audio { width: 100%; outline: none; }
-        
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            background: #020000; 
-            border-top: 3px double var(--gold); 
-            color: #888; 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بانو مِلی | A Royal Story</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black:#090608;
+  --wine:#260811;
+  --maroon:#591321;
+  --gold:#d6b36d;
+  --pale:#f2dfb7;
+  --cream:#eee5d9;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body {
+  background:radial-gradient(ellipse at top,#38101b,#10080b 55%,#080607);
+  color:var(--cream);
+  font-family:'Vazirmatn',sans-serif;
+}
+
+a {text-decoration:none;color:inherit;}
+
+header {
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 8%;
+  background:rgba(8,6,7,.95);
+  border-bottom:1px solid #82633b;
+  backdrop-filter:blur(12px);
+}
+
+.logo {
+  color:var(--gold);
+  font-size:25px;
+  font-weight:800;
+}
+
+nav {
+  display:flex;
+  gap:25px;
+}
+
+nav a {
+  font-size:14px;
+  color:#e4d7c5;
+  transition:.3s;
+}
+
+nav a:hover {color:var(--gold);}
+
+.hero {
+  min-height:650px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:90px 20px;
+  background:
+    linear-gradient(rgba(10,5,8,.45),rgba(10,5,8,.8)),
+    radial-gradient(ellipse at center,#5a1726,#1c0910 65%,#090608);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before {
+  content:"✦";
+  position:absolute;
+  top:60px;
+  right:12%;
+  font-size:90px;
+  color:#d6b36d33;
+}
+
+.hero:after {
+  content:"✦";
+  position:absolute;
+  bottom:60px;
+  left:12%;
+  font-size:90px;
+  color:#d6b36d33;
+}
+
+.hero-content {max-width:800px;z-index:1;}
+
+.eyebrow {
+  color:var(--gold);
+  letter-spacing:6px;
+  font-size:12px;
+}
+
+.hero h1 {
+  font-size:clamp(65px,12vw,115px);
+  color:var(--pale);
+  text-shadow:0 0 35px #d6b36d55;
+  margin:15px 0;
+}
+
+.author {
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  font-style:italic;
+  color:var(--gold);
+}
+
+.hero p {
+  max-width:600px;
+  margin:25px auto;
+  line-height:2.7;
+  color:#e3d5c6;
+}
+
+.button {
+  display:inline-block;
+  margin-top:20px;
+  padding:13px 38px;
+  color:var(--pale);
+  border:1px solid var(--gold);
+  background:linear-gradient(135deg,#641526,#300a12);
+  transition:.4s;
+}
+
+.button:hover {
+  background:var(--gold);
+  color:#18090c;
+  box-shadow:0 0 25px #d6b36d66;
+}
+
+section {padding:85px 8%;}
+
+.heading {
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.heading h2 {
+  color:var(--gold);
+  font-size:32px;
+}
+
+.heading p {
+  color:#b9a68e;
+  font-size:13px;
+  margin-top:10px;
+}
+
+.ornament {
+  color:var(--gold);
+  letter-spacing:10px;
+  margin-top:12px;
+}
+
+.frame {
+  border:1px solid #b28b50;
+  padding:45px 30px;
+  background:linear-gradient(145deg,#40101b55,#0a0709bb);
+  box-shadow:0 0 25px #d6b36d12,inset 0 0 25px #d6b36d08;
+}
+
+.characters {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:35px;
+}
+
+.character {
+  text-align:center;
+  transition:.35s;
+}
+
+.character:hover,.king:hover {
+  transform:translateY(-8px);
+}
+
+.circle {
+  width:165px;
+  height:165px;
+  margin:auto;
+  padding:5px;
+  border:4px double var(--gold);
+  border-radius:50%;
+  background:#32101a;
+  box-shadow:0 0 22px #d6b36d30;
+}
+
+.circle img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.character h3,.king h3 {
+  margin-top:17px;
+  color:var(--pale);
+  font-size:19px;
+}
+
+.kings {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:35px;
+}
+
+.king {
+  text-align:center;
+  transition:.35s;
+}
+
+.king-image {
+  height:290px;
+  padding:6px;
+  border:2px solid var(--gold);
+  background:#32101a;
+  box-shadow:0 0 23px #d6b36d25;
+}
+
+.king-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.about-box {
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  padding:50px;
+  border:1px solid var(--gold);
+  background:linear-gradient(135deg,#45101e88,#10090c);
+  box-shadow:0 0 25px #d6b36d12;
+}
+
+.about-box h2 {
+  color:var(--gold);
+  font-size:30px;
+  margin-bottom:25px;
+}
+
+.about-box p {
+  color:#e0d3c2;
+  line-height:3;
+  font-size:15px;
+}
+
+.divider {
+  text-align:center;
+  color:var(--gold);
+  margin:45px 0 0;
+  letter-spacing:12px;
+}
+
+footer {
+  text-align:center;
+  padding:35px 15px;
+  border-top:1px solid #8c6c40;
+  background:#080607;
+  color:#b99d70;
+  font-size:13px;
+}
+
+@media(max-width:800px) {
+  header {
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav {
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+  }
+
+  .characters {
+    grid-template-columns:repeat(2,1fr);
+    gap:35px 10px;
+  }
+
+  .kings {
+    grid-template-columns:1fr;
+    max-width:380px;
+    margin:auto;
+  }
+
+  section {padding:65px 5%;}
+}
+
+@media(max-width:430px) {
+  .circle {
+    width:125px;
+    height:125px;
+  }
+
+  .frame {padding:35px 12px;}
+
+  .about-box {padding:30px 18px;}
+
+  .hero {min-height:550px;}
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <div class="logo">👑 بانو ملی</div>
-        <nav>
-            <a href="#">صفحه اصلی</a>
-            <a href="#characters">شخصیت‌ها</a>
-            <a href="#kings">پادشاهان</a>
-        </nav>
-    </header>
 
-    <section class="hero">
-        <h1>بانو ملی</h1>
-        <div class="author-name">به قلم Ava</div>
-        <p>داستانی از عشق، قدرت و سرنوشت...</p>
-        <a href="#characters" class="btn">📖 شروع داستان</a>
-    </section>
+<header>
+  <a class="logo" href="#home">بانو مِلی</a>
 
-    <section class="container" id="characters">
-        <div class="box" style="max-width: 100%;">
-            <h2>شخصیت‌های اصلی</h2>
-            <div class="characters">
-                <div class="char-card">
-                    <!-- اینجا عکس‌های خودت رو با اسم‌های file_... گذاشتم -->
-                    <img src="file_000000005160821085cd97d3beb97764.png" alt="لوسی">
-                    <h3>لوسی</h3>
-                </div>
-                <div class="char-card">
-                    <img src="file_000000004b9081f4bb78f966acc07fc7.png" alt="آندره">
-                    <h3>آندره</h3>
-                </div>
-                <div class="char-card">
-                    <img src="file_00000000401c81f4975725d2c9d18a55.png" alt="ملی">
-                    <h3>ملی</h3>
-                </div>
-                <div class="char-card">
-                    <img src="InShot_20261122_185433909.jpg" alt="خدمتکار">
-                    <h3>خدمتکار</h3>
-                </div>
-            </div>
+  <nav>
+    <a href="#home">صفحه اصلی</a>
+    <a href="#characters">شخصیت‌ها</a>
+    <a href="#kings">پادشاهان</a>
+    <a href="#about">درباره داستان</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">A ROYAL LOVE STORY</div>
+    <h1>بانو مِلی</h1>
+    <div class="author">By Ava</div>
+
+    <p>
+      در سرزمین پادشاهان و ملکه‌ها، جایی میان قصرهای باشکوه
+      و رازهای پنهان، سرنوشت دو خاندان سلطنتی به یکدیگر گره می‌خورد.
+      داستانی از عشق، قدرت، خیانت و رازهایی که هرگز نباید فاش شوند.
+    </p>
+
+    <a href="#about" class="button">ورود به دنیای داستان</a>
+  </div>
+</div>
+
+<!-- CHARACTERS -->
+
+<section id="characters">
+  <div class="heading">
+    <h2>شخصیت‌های داستان</h2>
+    <p>چهره‌هایی از دنیای بانو مِلی</p>
+    <div class="ornament">✦ ❖ ✦</div>
+  </div>
+
+  <div class="frame">
+    <div class="characters">
+
+      <div class="character">
+        <div class="circle">
+          <!-- اینجا عکس‌های واقعی خودت گذاشته شد -->
+          <img src="file_000000005160821085cd97d3beb97764.png" alt="لوسی">
         </div>
-    </section>
+        <h3>لوسی</h3>
+      </div>
 
-    <section class="container" id="kings">
-        <div class="box" style="max-width: 100%;">
-            <h2>پادشاهان</h2>
-            <div class="kings-section">
-                <!-- لینک عکس‌های پادشاهان از ویکی‌پدیا -->
-                <div class="king-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Louis_XIV_of_France.jpg/400px-Louis_XIV_of_France.jpg" alt="پادشاه فرانسه">
-                    <h3>پادشاه فرانسه</h3>
-                </div>
-                <div class="king-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kaiser_Wilhelm_II_%28cropped%29.jpg/400px-Kaiser_Wilhelm_II_%28cropped%29.jpg" alt="پادشاه آلمان">
-                    <h3>پادشاه آلمان</h3>
-                </div>
-                <div class="king-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nicholas_II_of_Russia.jpg/400px-Nicholas_II_of_Russia.jpg" alt="پادشاه روسیه">
-                    <h3>پادشاه روسیه</h3>
-                </div>
-            </div>
+      <div class="character">
+        <div class="circle">
+          <img src="file_000000004b9081f4bb78f966acc07fc7.png" alt="آندره">
         </div>
-    </section>
+        <h3>آندره</h3>
+      </div>
 
-    <section class="container" id="about">
-        <div class="box">
-            <h2>درباره داستان</h2>
-            <p style="line-height: 2; font-size: 1.1rem; color: #ddd;">در میان شکوه کاخ‌ها و سایه‌های گذشته، دختری از سرزمین روسیه و پسری از آلمان... داستانی از عشق ممنوعه، قدرت، و انتخاب‌هایی که سرنوشت را می‌سازند...</p>
+      <div class="character">
+        <div class="circle">
+          <img src="file_00000000401c81f4975725d2c9d18a55.png" alt="ملی">
         </div>
-        
-        <div class="box" id="music-player">
-            <h2>🎵 موسیقی داستان</h2>
-            <div class="audio-player">
-                <div class="song-title">♪ Fourth of July - Sufjan Stevens</div>
-                <!-- لینک مستقیم جدید برای آهنگ -->
-                <audio id="bg-music" controls style="width: 100%;">
-                    <source src="https://dl.musicfa.com/1403/02/11/Sufjan-Stevens-Fourth-Of-July.mp3" type="audio/mpeg">
-                </audio>
-            </div>
-        </div>
-    </section>
+        <h3>مِلی</h3>
+      </div>
 
-    <footer>
-        ساخته شده با ❤️ برای داستان بانو ملی | به قلم Ava | تمامی حقوق محفوظ است.
-    </footer>
+      <div class="character">
+        <div class="circle">
+          <img src="InShot_20261122_185433909.jpg" alt="خدمتکار">
+        </div>
+        <h3>خدمتکار</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KINGS -->
+
+<section id="kings">
+  <div class="heading">
+    <h2>پادشاهان اروپا</h2>
+    <p>تاج‌هایی که سرنوشت ملت‌ها را رقم می‌زنند</p>
+    <div class="ornament">✦ ❖ ✦</div>
+  </div>
+
+  <div class="frame">
+    <div class="kings">
+
+      <div class="king">
+        <div class="king-image">
+          <!-- عکس‌های پادشاهان از لینک‌های معتبر -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Louis_XIV_of_France.jpg/400px-Louis_XIV_of_France.jpg" alt="پادشاه فرانسه">
+        </div>
+        <h3>پادشاه فرانسه</h3>
+      </div>
+
+      <div class="king">
+        <div class="king-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kaiser_Wilhelm_II_%28cropped%29.jpg/400px-Kaiser_Wilhelm_II_%28cropped%29.jpg" alt="پادشاه آلمان">
+        </div>
+        <h3>پادشاه آلمان</h3>
+      </div>
+
+      <div class="king">
+        <div class="king-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nicholas_II_of_Russia.jpg/400px-Nicholas_II_of_Russia.jpg" alt="پادشاه روسیه">
+        </div>
+        <h3>پادشاه روسیه</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="about-box">
+    <h2>درباره بانو مِلی</h2>
+
+    <div class="ornament">✦ ❖ ✦</div>
+
+    <p>
+      در روزگاری که تاج‌وتخت ارزشمندتر از احساسات انسان‌ها بود،
+      دختر پادشاه روسیه و پسر پادشاه آلمان در میان بازی‌های سیاسی
+      و تصمیمات خاندان‌های سلطنتی قرار می‌گیرند.
+
+      <br>
+
+      مِلی، شاهزاده‌ای از سرزمین روسیه، و آندره،
+      وارث تاج‌وتخت آلمان، در جهانی زندگی می‌کنند
+      که هر نگاه می‌تواند رازی را آشکار کند و هر تصمیم
+      ممکن است سرنوشت یک امپراتوری را تغییر دهد.
+
+      <br>
+
+      اینجا عشق با سیاست روبه‌رو می‌شود و هیچ‌کس
+      آن‌گونه که به نظر می‌رسد نیست...
+    </p>
+  </div>
+</section>
+
+<div class="divider">✦ ❖ ✦</div>
+
+<footer>
+  <p>© تمام حقوق داستان بانو مِلی محفوظ است.</p>
+  <p>نوشته شده با عشق توسط <span>Ava</span> 🥀</p>
+</footer>
+
 </body>
-                        </html>
+</html>
