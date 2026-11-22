@@ -51,7 +51,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 80vh;
+            height: 70vh;
             background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(10,5,5,0.9) 100%);
         }
         .hero h1 {
@@ -95,7 +95,7 @@
             padding: 20px;
             flex: 1;
             min-width: 300px;
-            max-width: 400px;
+            max-width: 800px;
             text-align: center;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
@@ -107,19 +107,27 @@
         }
         .characters {
             display: flex;
-            justify-content: space-around;
-            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
         .char-card {
             text-align: center;
+            width: 120px;
         }
         .char-card img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             border: 2px solid var(--gold);
             object-fit: cover;
             margin-bottom: 10px;
+        }
+        .more-btn {
+            margin-top: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+            padding: 8px 20px;
         }
         .audio-player {
             background: #110808;
@@ -139,12 +147,6 @@
             font-size: 12px;
             border-top: 1px solid var(--maroon);
         }
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 10px; font-size: 12px; }
-            .hero h1 { font-size: 2.5rem; }
-            .container { padding: 20px; }
-            .characters { flex-direction: column; align-items: center; }
-        }
     </style>
 </head>
 <body>
@@ -157,31 +159,43 @@
             <a href="#">فصل‌ها</a>
         </nav>
     </header>
+
     <section class="hero">
         <h1>بانو ملی</h1>
         <p>داستانی از عشق، قدرت و سرنوشت...</p>
         <a href="#chapters" class="btn">📖 شروع داستان</a>
     </section>
+
     <section class="container">
         <div class="box">
-            <h2>شخصیت‌ها</h2>
+            <h2>شخصیت‌های اصلی</h2>
             <div class="characters">
                 <div class="char-card">
                     <img src="lucy.jpg" alt="لوسی">
                     <h3>لوسی</h3>
-                    <p style="font-size: 12px;">دختری با موهای سرخ</p>
                 </div>
                 <div class="char-card">
                     <img src="andre.jpg" alt="آندره">
                     <h3>آندره</h3>
-                    <p style="font-size: 12px;">پسری از خاندان سلطنتی</p>
+                </div>
+                <div class="char-card">
+                    <img src="meli.jpg" alt="ملی">
+                    <h3>ملی</h3>
+                </div>
+                <div class="char-card">
+                    <img src="khedmatkar.jpg" alt="خدمتکار">
+                    <h3>خدمتکار</h3>
                 </div>
             </div>
+            <br>
+            <a href="characters.html" class="btn more-btn">مشاهده سایر شخصیت‌ها (پادشاهان) 👑</a>
         </div>
+
         <div class="box">
             <h2>درباره داستان</h2>
             <p>در میان شکوه کاخ‌ها و سایه‌های گذشته، دختری از سرزمین روسیه و پسری از آلمان... داستانی از عشق ممنوعه، قدرت، و انتخاب‌هایی که سرنوشت را می‌سازند...</p>
         </div>
+
         <div class="box">
             <h2>🎵 موسیقی داستان</h2>
             <div class="audio-player">
@@ -192,6 +206,7 @@
             </div>
         </div>
     </section>
+
     <footer>
         ساخته شده با ❤️ برای داستان بانو ملی | تمامی حقوق محفوظ است.
     </footer>
